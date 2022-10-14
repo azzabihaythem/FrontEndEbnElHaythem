@@ -1,0 +1,1563 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Component UI - Documentation</title>
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="img/favicon.ico">
+
+  <!-- Plagins CSS -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  
+  <!-- Theme CSS -->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/vs2015.css">
+	<script src="js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+	<div class="page-wrap">
+		<div class="main-menu">
+			<nav class="navbar navbar-default">
+				<div class="navbar-header">
+					<div class="navbar-header-wrap">
+						<img src="img/logo.png" width="140" height="33" alt="Logo">
+					</div>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="#introduction">Introduction</a></li>
+						<li><a href="#started">Getting started</a></li>
+						<li><a href="#customization">Customization</a></li>
+						<li><a href="#routing">Routing and main menu</a></li>
+						<li><a href="#components">UI components</a></li>
+						<li><a href="#directives">UI directives</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		
+		<div class="content-wrap">
+			<div class="container-fluid">
+				<section id="introduction" class="section">
+					<h2 class="section-title">Introduction</h2>
+
+					<p><strong>MedicApp</strong> is an Angular admin template, which is based on the Angular 13+, Bootstrap 5+,
+						NgRx and ready to use REST API.</p>
+					<p><strong>MedicApp</strong> use unique UI components, created special for Angular application, which allows
+						it to be easily customize and build your own app quickly.</p>
+					<p>MedicApp built on <strong>NgRx store</strong> - is RxJS powered state management for Angular applications,
+						inspired by <strong>Redux.</strong> Store is a controlled state container designed to help write performant,
+						consistent applications on top of Angular.</p>
+					<p>All styles are fully develop with <strong>SCSS</strong> and easy to understand and customize.</p>
+					<p>It is really appropriate template for Doctors, Dentists, Hospitals, Health clinics, Surgeons and medical
+						organization. It is purpose oriented design, responsive layout with special features such as wonderful
+						clinic dashboards, appointment manager and appointment forms, doctors list and doctor profile, departments
+						management, patients list and patient profile, payments manager and many more. But this template can be used
+						for all type of web applications like custom admin panel, project management system, admin dashboard,
+						application backend, CMS or CRM.</p>
+
+					<h3>Technologies</h3>
+					<ul>
+						<li>Angular</li>
+						<li>Angular CLI</li>
+						<li>Bootstrap</li>
+						<li>Npm</li>
+						<li>Sass</li>
+						<li>CSS3 Animations</li>
+						<li>Typescript</li>
+						<li>Google fonts</li>
+					</ul>
+
+					<h3>Core features</h3>
+					<ul>
+						<li>Unlimited navbar colors</li>
+						<li>5 different layouts</li>
+						<li>Data tables</li>
+						<li>Vertical/horizontal navbar</li>
+						<li>Fully Responsive Layout</li>
+						<li>Light/dark sidebar</li>
+						<li>Light/dark topbar</li>
+						<li>Easy to customize</li>
+						<li>3 icon packs</li>
+						<li>Employee management</li>
+						<li>And many more…</li>
+					</ul>
+
+					<h3>Medicine features</h3>
+					<ul>
+						<li>Clinic dashboards</li>
+						<li>Appointments management</li>
+						<li>Add/edit appointment</li>
+						<li>Doctors management</li>
+						<li>Add/edit doctor</li>
+						<li>Doctor profile</li>
+						<li>Departments management</li>
+						<li>Patients management</li>
+						<li>Add/edit patient</li>
+						<li>Payments management</li>
+						<li>Add/edit payment</li>
+						<li>Add/edit payment</li>
+						<li>Authorization process</li>
+						<li>Invoices management</li>
+						<li>Events timeline</li>
+						<li>Events calendar</li>
+					</ul>
+
+					<h3>Unique UI Angular components</h3>
+					<ul>
+						<li>Alert</li>
+						<li>Autocomplete</li>
+						<li>Avatar</li>
+						<li>Badge</li>
+						<li>Button</li>
+						<li>Card</li>
+						<li>Checkbox</li>
+						<li>Contact</li>
+						<li>Dropdown</li>
+						<li>Form-description</li>
+						<li>Form-group</li>
+						<li>Form-label</li>
+						<li>Icon</li>
+						<li>Input</li>
+						<li>Modal-window</li>
+						<li>Pagination</li>
+						<li>Radio</li>
+						<li>Rating</li>
+						<li>Select</li>
+						<li>Switcher</li>
+						<li>Table</li>
+						<li>Textarea</li>
+						<li>Vertical-timeline</li>
+					</ul>
+
+					<h3>All pages</h3>
+					<ul>
+						<li>
+							Medicine
+							<ul>
+								<li>Dashboard</li>
+								<li>Appointments</li>
+								<li>Doctors</li>
+								<li>Doctor profile</li>
+								<li>Departments</li>
+								<li>Patients</li>
+								<li>Patient profile</li>
+								<li>Payments</li>
+							</ul>
+						</li>
+						<li>
+							UI Kit
+							<ul>
+								<li>
+									Components
+									<ul>
+										<li>Alerts</li>
+										<li>Autocompletes</li>
+										<li>Badges</li>
+										<li>Buttons</li>
+										<li>Cards</li>
+										<li>Checkboxes</li>
+										<li>Contacts</li>
+										<li>Inputs</li>
+										<li>Modal windows</li>
+										<li>Radio buttons</li>
+										<li>Ratings</li>
+										<li>Selects</li>
+										<li>Switchers</li>
+										<li>Textareas</li>
+										<li>Vertical timeline</li>
+									</ul>
+								</li>
+								<li>
+									Icons
+									<ul>
+										<li>Icons options</li>
+										<li>Icofont</li>
+										<li>Simple line icons</li>
+									</ul>
+								</li>
+								<li>Typography</li>
+								<li>
+									Tables
+									<ul>
+										<li>Simple tables</li>
+										<li>Sorting tables</li>
+										<li>Search table</li>
+										<li>Filtering tables</li>
+										<li>Pagination tables</li>
+									</ul>
+								</li>
+								<li>
+									Forms
+									<ul>
+										<li>Form elements</li>
+										<li>Form layouts</li>
+										<li>Form validation</li>
+									</ul>
+								</li>
+								<li>
+									Charts
+									<ul>
+										<li>Ng2 charts</li>
+										<li>Ngx charts</li>
+										<li>Ngx echarts</li>
+									</ul>
+								</li>
+								<li>
+									Maps
+									<ul>
+										<li>Google map</li>
+										<li>Leaflet map</li>
+										<li>World map</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							Apps
+							<ul>
+								<li>
+									Service pages
+									<ul>
+										<li>Invoices</li>
+										<li>Pricing</li>
+										<li>Edit account</li>
+										<li>User profile</li>
+										<li>Events timeline</li>
+										<li>Events calendar</li>
+									</ul>
+								</li>
+								<li>
+									Sessions
+									<ul>
+										<li>Sign in</li>
+										<li>Sign up</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section><!-- .section -->
+
+				<section id="started" class="section">
+					<h2 class="section-title">Getting started</h2>
+
+					<p>This template is built with <i>angular-cli</i> and requires <i>Node(v14.17.3)</i> and <i>NPM(v7.20.0)</i> to be installed.</p>
+
+					<h3>Installing prerequisites</h3>
+					<p><strong>Node.js and NPM:</strong> You can download Node.js from <a href="https://nodejs.org">https://nodejs.org</a>.
+						NPM comes bundled with Node.js</p>
+					<p><strong>angular-cli:</strong> You can install angular-cli by executing from your terminal <code>npm install -g @angular/cli</code>.
+						More details can be found here <a href="https://github.com/angular/angular-cli">https://github.com/angular/angular-cli</a> </p>
+
+					<h3>Installing npm packages</h3>
+					<p>Before start you'll need to install required packages and dependencies. Open folder with theme in terminal and run <code>npm install</code>.</p>
+					<p>Then run <code>ng serve</code> to start dev server. By default it will run at <a href="http://localhost:4200/">http://localhost:4200/</a>.</p>
+				</section><!-- .section -->
+
+				<section id="customization" class="section">
+					<h2 class="section-title">Customization</h2>
+
+					<h3>Main app's settings</h3>
+					<p>You can change main app's settings in <code>src/environments/settings.ts</code>.</p>
+
+					<h3>Sass settings</h3>
+					<p>All style files can be found at <code>src/assets/sass</code>. For changing styles of the app
+						you can go to <code>_variables.scss</code>,it contains all color schemas and main parameters of the app.
+						Main scss file is located in <code>src/assets/sass/style.scss</code>.</p>
+
+				</section><!-- .section -->
+
+				<section id="routing" class="section">
+					<h2 class="section-title">Routing and main menu</h2>
+
+					<h3>Routing</h3>
+					<p>Router file located in<code>src/app/routing/routing.module.ts</code>.</p>
+					<p>For adding new routing path add new path with bound to it component to ROUTES or DEFAULT_ROUTES array. Example: </p>
+					<code>...</code><br>
+					<code>{ path: 'your-routing-path', component: ComponentName }</code><br>
+					<code>...</code>
+					<br>
+					<p>Also routing module contains several routers array for different layouts, if you need to specified path to specific layout.</p>
+					<p></p>
+					<p>Firstly create routers array, that you want to be bound to your layout:</p>
+<pre>
+<code class="typescript">
+const YOUR_LAYOUT_ROUTES: Routes = [
+ { path: '404', component: PageNotFoundComponent},
+ { path: '500', component: PageInternalErrorComponent}
+];
+</code>
+</pre>
+					<p>And add this array to ROUTES array defining your layout component and router path:</p>
+<pre>
+<code class="typescript">
+export const ROUTES: Routes = [
+{
+ path: 'your-layout-path',
+ component: YourLayoutComponent,
+ children: YOUR_LAYOUT_ROUTES
+}];
+</code>
+</pre>
+					<br><br>
+					<h4>Main menu</h4>
+					<p>Main menu configuration file  located in <code>src/assets/data/menu.json</code>. You can customize main menu from here.</p>
+					<p>Menu item interface can be found at <code>src/app/interfaces/main-menu.ts</code></p>
+					<br>
+					<p>Main menu item contains next parameters:</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td><b>Title</b></td>
+							<td>Title of menu item (parameter is required)</td>
+						</tr>
+						<tr>
+							<td><b>Routing</b></td>
+							<td>Routing path of item</td>
+						</tr>
+						<tr>
+							<td><b>Icon</b></td>
+							<td>Class name of items icon</td>
+						</tr>
+						<tr>
+							<td><b>Active</b></td>
+							<td>State of menu item</td>
+						</tr>
+						<tr>
+							<td><b>Sub</b></td>
+							<td>Array of subitems of the item</td>
+						</tr>
+					</table>
+<pre>
+<code class="json">
+{
+ "title": "Dashboard",
+ "icon" : "icofont-dashboard-web",
+ "sub"  :
+{
+  "title": "Dashboard 1",
+  "routing" : "dashboard1"
+},
+{
+  "title": "Dashboard 2",
+  "routing" : "dashboard2"
+},
+{
+  "title": "Dashboard 3",
+  "routing" : "dashboard3"
+}</code>
+</pre>
+					<p>Menu item with 3 sub items</p>
+<pre>
+ <code class="json">
+{
+  "title" : "Users",
+  "icon"  : "icofont-ui-user",
+  "routing" : "users"
+}</code>
+</pre> <p>Menu item withount sub items</p>
+
+				</section><!-- .section -->
+ 
+				<section id="components" class="section">
+					<h2 class="section-title">UI components</h2>
+
+					<h3>Autocomplete</h3>
+					<p>Input control with dropdown list with suggested results.</p>
+<pre>
+<code class="html">
+&lt;tc-autocomplete
+  [placeholder]="'Placeholder of the input'"
+  [data]="menuItems" [key]="'title'"
+&gt;&lt;tc-autocomplete&gt;
+</code>
+</pre>
+					<p>Autocomplete parameters:</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>data</td>
+							<td>Array&lt;any&gt;</td>
+							<td>Objects or string array from which suggested results will be taken. If provided as object array require 'key' parameter </td>
+						</tr>
+						<tr>
+							<td>key</td>
+							<td>string</td>
+							<td>Speciefied field of object from which suggested results will be taken.</td>
+						</tr>
+						<tr>
+							<td>listColor</td>
+							<td>string</td>
+							<td>Set dropdown list text-color</td>
+						</tr>
+						<tr>
+							<td>listBg</td>
+							<td>string</td>
+							<td>Set list background color</td>
+						</tr>
+						<tr>
+							<td>listAccentColor</td>
+							<td>string</td>
+							<td>Set highlight color of suggesed part</td>
+						</tr>
+					</table>
+
+					<p>Also <code> tc-autocomplete</code> component extend <code>tc-input</code> component,
+						and all <code>tc-input</code> parameters are available for using with <code>tc-autocomplete</code>.</p>
+
+					<h3>Badge</h3>
+					<p>Small count and labeling component </p>
+					<p>Example usage: </p>
+<pre>
+<code class="html">
+&lt;tc-badge&gt;Badge text&lt;/tc-badge&gt;
+</code>
+</pre>
+					<p>Components parameters</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>View</td>
+							<td>string</td>
+							<td>Set one of predefined styles for badge. Posible options : default, accent, success, warning, info, error.</td>
+						</tr>
+						<tr>
+							<td>Size</td>
+							<td>string</td>
+							<td>Define badge component size</td>
+						</tr>
+					</table>
+
+
+					<h3>Button</h3>
+					<p>Button component contain various options in styling. Such as align, color, backround color and more. Also contain several predifined buttons styles </p>
+					<p>Example usage: </p>
+<pre>
+<code class="html">
+&lt;button tc-button&gt;Button text&lt;/button&gt;
+</code>
+</pre>
+					<p>Components parameters: </p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>block</td>
+							<td>boolean</td>
+							<td>If true button take all available space</td>
+						</tr>
+						<tr>
+							<td>disabled</td>
+							<td>boolean</td>
+							<td>If true button is disabled</td>
+						</tr>
+						<tr>
+							<td>outline</td>
+							<td>boolean</td>
+							<td>If true button becomes outline</td>
+						</tr>
+						<tr>
+							<td>gradient</td>
+							<td>boolean</td>
+							<td>If true button can have custom gradient as background</td>
+						</tr>
+						<tr>
+							<td>icon-animation</td>
+							<td>boolean</td>
+							<td>Enable icon animation</td>
+						</tr>
+						<tr>
+							<td>align</td>
+							<td>string</td>
+							<td>Button text align</td>
+						</tr>
+						<tr>
+							<td>size</td>
+							<td>string</td>
+							<td>Button component size</td>
+						</tr>
+						<tr>
+							<td>view</td>
+							<td>string</td>
+							<td>Set one of predefined styles for button. Posible options : default, accent, success, warning, info, error.</td>
+						</tr>
+						<tr>
+							<td>shape</td>
+							<td>number | string</td>
+							<td>Set border-radius for button</td>
+						</tr>
+						<tr>
+							<td>tcLineStyle</td>
+							<td>string</td>
+							<td>Set border-style for button</td>
+						</tr>
+					</table>
+
+					<h3>Card</h3>
+					<p>Card is content container with various options in design and content placement.</p>
+					<p>Example usage: </p>
+<pre>
+<code class="html">
+&lt;tc-card [title]=&quot;'Standart Card With Title'&quot;&gt;
+ Text that will be displayed in card content.
+&lt;/tc-card&gt;
+</code>
+</pre>
+					<p>Components parameters:</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>title</td>
+							<td>string</td>
+							<td>Set card title</td>
+						</tr>
+						<tr>
+							<td>align</td>
+							<td>string </td>
+							<td>Set text align to card content and title</td>
+						</tr>
+						<tr>
+							<td>img</td>
+							<td>string</td>
+							<td>Path to img that will be added above content </td>
+						</tr>
+						<tr>
+							<td>bgImg</td>
+							<td>string</td>
+							<td>Path to img that will be card background</td>
+						</tr>
+						<tr>
+							<td>bgColor</td>
+							<td>string</td>
+							<td>Set color of card background</td>
+						</tr>
+						<tr>
+							<td>borderColor</td>
+							<td>string</td>
+							<td>Set one of predefined styles for card. Posible options : default, accent, success, warning, info, error.</td>
+						</tr>
+						<tr>
+							<td>borderWidth</td>
+							<td>number</td>
+							<td>Set width of card border in pixels</td>
+						</tr>
+						<tr>
+							<td>overflow</td>
+							<td>boolean</td>
+							<td>If true overflow is visible</td>
+						</tr>
+						<tr>
+							<td>padding</td>
+							<td>number</td>
+							<td>Set the padding of card content in pixels</td>
+						</tr>
+						<tr>
+							<td>view</td>
+							<td>string</td>
+							<td>Set one of  predefined card styles</td>
+						</tr>
+					</table>
+
+					<h3>Checkbox</h3>
+					<p>Checkbox usage example:</p>
+<pre>
+<code class="html">
+&lt;tc-checkbox&gt;Checkbox label&lt;/tc-checkbox&gt;
+</code>
+</pre>
+					<p>Components parameters</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>label</td>
+							<td>string</td>
+							<td>Set label of checkbox</td>
+						</tr>
+						<tr>
+							<td>disabled</td>
+							<td>boolean</td>
+							<td>If true checkbox is disabled</td>
+						</tr>
+						<tr>
+							<td>value</td>
+							<td>boolean</td>
+							<td>Initial value of checkbox</td>
+						</tr>
+						<tr>
+							<td>bgColor</td>
+							<td>string | string[]</td>
+							<td>Set background color of checkbox. If given as array also aply parameters to hover, focus and disabled in this order: 1) hover 2) focus 3) disabled</td>
+						</tr>
+						<tr>
+							<td>color</td>
+							<td>string | string[]</td>
+							<td>Set color of checkbox mar. If given as array also aply parameters to hover, focus and disabled in this order: 1) hover 2) focus 3) disabledk</td>
+						</tr>
+						<tr>
+							<td>labelColor</td>
+							<td>string | string[]</td>
+							<td>Set the color of checkboxes label. If given as array also aply parameters to hover, focus and disabled in this order: 1) hover 2) focus 3) disabled</td>
+						</tr>
+					</table>
+
+					<h3>Contact</h3>
+					<p>Contact component helps to briefly display user information. This component require user data as parameter. Data must be provided in folowing format: </p>
+<pre>
+<code class="typescript">
+export interface IUser {
+ img: string, 
+ name: string,
+ role: string,
+ email: string, 
+ phone: string,
+ location: string
+}
+</code>
+</pre>
+					<p>Example usage: </p>
+<pre>
+<code>
+&lt;tc-contact [user]=&quot;user&quot;&gt;&lt;/tc-contact&gt;
+</code>
+</pre>
+					<h3>Dropdown</h3>
+					<p>Dropdown is toggleable menu that is used to display list or another content</p>
+					<p>Usage example: </p>
+<pre>
+<code>
+&lt;tc-dropdown class=&quot;item&quot; [close]=&quot;closeDropdown&quot;&gt;
+ &lt;tc-dropdown-button&gt;
+ &lt;button&gt; Button or other component to trigger drodown&lt;/button&gt;
+ &lt;/tc-dropdown-button&gt;
+
+ &lt;tc-dropdown-content&gt;
+ // Content of dropdown
+&lt;/tc-dropdown-content&gt;
+ &lt;/tc-dropdown&gt;
+</code>
+</pre>
+					<p>Inside this component must be called <code>tc-dropdown-button</code> and <code>tc-dropdown-content</code>. First for triggering dropdown, second as container for dropdown content</p>
+
+					<p>Dropdown parameters: </p>
+					<table class="table table-bordered">
+
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>Opened</td>
+							<td>EventEmitter&lt;boolean&gt;</td>
+							<td>Emmitter to chan&lt;/element-selector&gt;
+						</tr>
+					</table>
+					<p><code>tc-dropdown-content</code> parameters:</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>overlay</td>
+							<td>boolean</td>
+							<td>If true make dropwon apear over above the content</td>
+						</tr>
+						<tr>
+							<td>offset</td>
+							<td>number[]</td>
+							<td>Array of dropdown list ofsets</td>
+						</tr>
+						<tr>
+							<td>animation</td>
+							<td>string</td>
+							<td>Apply animation to dropdown list apearing</td>
+						</tr>
+						<tr>
+							<td>align</td>
+							<td>string</td>
+							<td>Set text align to dropdown content</td>
+						</tr>
+						<tr>
+							<td>width</td>
+							<td>number | string</td>
+							<td>Set width of dropdown content</td>
+						</tr>
+						<tr>
+							<td>maxWidth</td>
+							<td>number | string</td>
+							<td>Set max-width of dropdown conntent</td>
+						</tr>
+						<tr>
+							<td>maxHeight</td>
+							<td>number | string</td>
+							<td>Set max-height of dropdown content</td>
+						</tr>
+						<tr>
+							<td>bg</td>
+							<td>string</td>
+							<td>Set background-color of the dropdown content.</td>
+						</tr>
+					</table>
+
+					<h3>Form description</h3>
+					<p>Component that provide description to form elements</p>
+					<p>Usage example:</p>
+<pre>
+<code class="html"> 
+&lt;tc-input [placeholder]=&quot;'With description'&quot;&gt;&lt;/tc-input&gt;
+
+&lt;tc-form-description&gt;Input description&lt;/tc-form-description&gt;
+</code>
+</pre>
+					
+					<h3>Form group</h3>
+					<p>Component that helps to group form elements.</p>
+					<p>Usage example:</p>
+<pre>
+<code class="html"> 
+&lt;tc-form-group&gt;
+  &lt;tc-input&gt;&lt;/tc-input&gt;
+&lt;/tc-form-group&gt;
+</code>
+</pre>
+					
+					<h3>Form label</h3>
+					<p>Component that provide label to form elements</p>
+					<p>Usage example:</p>
+<pre>
+<code class="html"> 
+&lt;tc-form-label&gt;Input label&lt;/tc-form-label&gt;
+&lt;tc-input [placeholder]=&quot;'With label'&quot;&gt;&lt;/tc-input&gt;
+</code>
+</pre>	
+					
+					<h3>Vertical timeline</h3>
+					<p>Usage example:</p>
+<pre>
+<code class="html">
+&lt;tc-v-timeline [data]=&quot;data&quot; &gt;&lt;/tc-v-timeline&gt;
+</code>
+</pre>
+					<p>All timeline data must be passed into <code>tc-v-timeline</code> as data parameter and implement interface ITimelineBox: </p>
+<pre>
+<code class="typescript">
+export interface ITimelineBox {
+  sectionLabel: string;
+  sectionData: ITimeline[];
+}
+
+export interface ITimeline {
+  date: string;
+  content: string;
+  title: string;
+  icon?: string;
+  iconBg?: string;
+  iconColor?: string;
+}
+</code>
+</pre>
+					<p>Timeline component parameters:</p>
+					 <table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>align</td>
+							<td>string</td>
+							<td>Set align of timeline items</td>
+						</tr>
+						<tr>
+							<td>data</td>
+							<td>ITimelineBox[]</td>
+							<td>Data that will be displayed on timeline</td>
+						</tr>
+					</table>
+
+					<h3>Icon</h3>
+					<p>Usage example</p>
+<pre>
+<code class="html">
+&lt;tc-icon
+  [iconClass]=&quot;'icofont-notification'&quot;
+  [tcFontSize]=&quot;20&quot;
+&gt;&lt;/tc-icon&gt;
+</code>
+</pre>
+					<p><code>tc-icon</code> parameters: </p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>iconClass</td>
+							<td>string</td>
+							<td>Set class for icon</td>
+						</tr>
+						<tr>
+							<td>padding</td>
+							<td>string | number</td>
+							<td>Set padding fro icon</td>
+						</tr>
+					</table>
+
+					<h3>Input</h3>
+					<p>Usage example:</p>
+<pre>
+<code class="html">
+	&lt;tc-input [innerValue]="'Value'"&gt;&lt;/tc-input&gt;
+</code>
+</pre>
+					<p>Input parameters :</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>type</td>
+							<td>string</td>
+							<td>Speciefied type of data that user wll be able to enter</td>
+						</tr>
+						<tr>
+							<td>name</td>
+							<td>string</td>
+							<td>Set name of the input</td>
+						</tr>
+						<tr>
+							<td>placeholder</td>
+							<td>string</td>
+							<td>Set placeholder of the input</td>
+						</tr>
+						<tr>
+							<td>charLimiting</td>
+							<td>number</td>
+							<td>Set maximum numbers of chars</td>
+						</tr>
+						<tr>
+							<td>prefix</td>
+							<td>string | string[]</td>
+							<td>Set prefix of the input text</td>
+						</tr>
+						<tr>
+							<td>sufix</td>
+							<td>string | string[]</td>
+							<td>Set suffix value of input text</td>
+						</tr>
+						<tr>
+							<td>prefixIcon</td>
+							<td>string | string[]</td>
+							<td>Set class for prefix icon. Icon apear if this parameter is set.</td>
+						</tr>
+						<tr>
+							<td>suffixIcon</td>
+							<td>string | string[]</td>
+							<td>Set class for suffix icon. Icon apear if this parameter is set.</td>
+						</tr>
+						<tr>
+							<td>size</td>
+							<td>string</td>
+							<td>Set size of the input. Posible options: 'sm', 'lg'</td>
+						</tr>
+						<tr>
+							<td>required</td>
+							<td>boolean</td>
+							<td>If true make input required</td>
+						</tr>
+						<tr>
+							<td>autosize</td>
+							<td>boolean</td>
+							<td>If true make input automaticaly change it's size if needed</td>
+						</tr>
+						<tr>
+							<td>innnerValue</td>
+							<td>string</td>
+							<td>Set inner value of the input</td>
+						</tr>
+						<tr>
+							<td>bgColor</td>
+							<td>string | string[]</td>
+							<td>Set background color of the input. If given as array apply each parameter on default state, on hovered,on focus,on disabled state in next order: 1) default,
+							2)hover, 3) focus, 4) disabled</td>
+						</tr>
+						<tr>
+							<td>borderColor</td>
+							<td>string | string[]</td>
+							<td>Set border-color of the input. If given as array apply each parameter on default state, on hovered,on focus,on disabled state in next order: 1) default,
+							2)hover, 3) focus, 4) disabled</td>
+						</tr>
+						<tr>
+							<td>color</td>
+							<td>string | string[]</td>
+							<td>Set text-color of the input. If given as array apply each parameter on default state, on hovered,on focus,on disabled state in next order: 1) default,
+							2)hover, 3) focus, 4) disabled</td>
+						</tr>
+					</table>
+
+					<h3>Radio button</h3>
+					<p>Usage example:</p>
+<pre>
+<code class="html">
+&lt;tc-radio&gt;
+ &lt;tc-radio-option [name]=&quot;'radio1'&quot; [value]=&quot;'val1'&quot;&gt;&lt;/tc-radio-option&gt;
+ &lt;tc-radio-option [name]=&quot;'radio1'&quot; [checked]=&quot;true&quot; [value]=&quot;'val2'&quot;&gt;&lt;/tc-radio-option&gt;
+&lt;/tc-radio&gt;
+</code>
+</pre>				
+					<p>To display options inside radio component you need to pass <code> tc-radio-option </code> component.</p>
+					<p>Parameters of <code>tc-radio</code> : </p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>direction</td>
+							<td>string</td>
+							<td>Set direction of radio buttons</td>
+						</tr>
+					</table>
+
+					<p><code>tc-radio-option</code> parameters:</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>checked</td>
+							<td>boolean</td>
+							<td>If true set radio button to checked</td>
+						</tr>
+						<tr>
+							<td>disabled</td>
+							<td>boolean</td>
+							<td>If true set radio button disabled</td>
+						</tr>
+						<tr>
+							<td>name</td>
+							<td>string</td>
+							<td>Set name of radio button to it's value</td>
+						</tr>
+						<tr>
+							<td>label</td>
+							<td>string</td>
+							<td>Label of radio button</td>
+						</tr>
+						<tr>
+							<td>value</td>
+							<td>string</td>
+							<td>Value of radio option</td>
+						</tr>
+						<tr>
+							<td>bgColor</td>
+							<td>string | string[]</td>
+							<td>Set backgroudn color of radio button. If given as array apply each parameter on default state,
+								on hovered,on focus,on disabled 	state in next order: 1) default, 2)hover, 3) focus, 4) disabled </td>
+						</tr>
+						<tr>
+							<td>color</td>
+							<td>string | string[]</td>
+							<td>Set color of radio button. If given as array apply each parameter on default state,on
+								hovered,on focus,on disabled state in next order: 1) default, 2)hover, 3) focus, 4) disabled  </td>
+						</tr>
+						<tr>
+							<td>labelColor</td>
+							<td>string | string[]</td>
+							<td>Set color of radio button label. If given as array apply each parameter on default state,
+								on hovered,on focus,on disabled state in next order: 1) default, 2)hover, 3) focus, 4) disabled </td>
+						</tr>
+					</table>
+
+					<h3>Select</h3>
+					<p>Usage example:</p>
+<pre>
+<code class="html">
+&lt;tc-select [placeholder]=&quot;'Select placeholder'&quot; [options]=&quot;data&quot; &gt;&lt;/tc-select&gt;
+</code>
+</pre>	
+					<p>All options must passed as data parameter and implement following interface :</p>
+<pre>
+<code class="typescript">
+export interface IOption {
+  value: string;
+  label: string;
+  disabled?: boolean;
+}
+</code>
+</pre>
+					<p><code>tc-select</code> parameters :</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>color</td>
+							<td>string</td>
+							<td>Set text color of select box</td>
+						</tr>
+						<tr>
+							<td>bg</td>
+							<td>string</td>
+							<td>Set background color of select box</td>
+						</tr>
+						<tr>
+							<td>borderColor</td>
+							<td>string</td>
+							<td>Set border-color of select box</td>
+						</tr>
+						<tr>
+							<td>shape</td>
+							<td>number | string</td>
+							<td>Set border-radius of select box</td>
+						</tr>
+						<tr>
+							<td>listColor</td>
+							<td>string</td>
+							<td>Set text color of dropdown list</td>
+						</tr>
+						<tr>
+							<td>listBg</td>
+							<td>string</td>
+							<td>Set background color of dropdown list</td>
+						</tr>
+						<tr>
+							<td>listBorderColor</td>
+							<td>string</td>
+							<td>Set border-color of dropdown list</td>
+						</tr>
+						<tr>
+							<td>listShape</td>
+							<td>number | string</td>
+							<td>Set border-radius of dropdown list</td>
+						</tr>
+						<tr>
+							<td>options</td>
+							<td>Array&lt;IOption &gt;</td>
+							<td>List of options that will be displayed in dropdown list</td>
+						</tr>
+						<tr>
+							<td>multiple</td>
+							<td>boolean</td>
+							<td>If true enable multi select</td>
+						</tr>
+						<tr>
+							<td>allowClear</td>
+							<td>boolean</td>
+							<td>If true makes button 'clear' visible  select. Button 'clear', can be enabled only in single select</td>
+						</tr>
+						<tr>
+							<td>disabled</td>
+							<td>boolean</td>
+							<td>If true makes select disabled</td>
+						</tr>
+						<tr>
+							<td>placeholder</td>
+							<td>string</td>
+							<td>Placeholder message that will be displayed in select box</td>
+						</tr>
+						<tr>
+							<td>notFoundMsg</td>
+							<td>string</td>
+							<td>Message that will be displayed in dropdown list if there is no options to select</td>
+						</tr>
+					</table>
+
+					<h3>Switcher</h3>
+					<p>Usage example:</p>
+<pre>
+<code>
+&lt;tc-switcher&gt;Checkbox label&lt;/tc-switcher&gt;
+</code>
+</pre>	
+					<p>Parameters of component</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>disabled</td>
+							<td>boolean</td>
+							<td>If true set switcher to disabled</td>
+						</tr>
+						<tr>
+							<td>label</td>
+							<td>string</td>
+							<td>Label of the switcher</td>
+						</tr>
+						<tr>
+							<td>name</td>
+							<td>string</td>
+							<td>Name of the switcher</td>
+						</tr>
+						<tr>
+							<td>value</td>
+							<td>boolean</td>
+							<td>Initial value of switcher</td>
+						</tr>
+						<tr>
+							<td>bgColor</td>
+							<td>string | string[]</td>
+							<td>Set backgroudn color of switcher. If given as array apply each parameter on default state, on hovered,on focus,on disabled
+								state in next order: 1) default, 2)hover, 3) focus, 4) disabled </td>
+						</tr>
+						<tr>
+							<td>color</td>
+							<td>string | string[]</td>
+							<td>Set color of switcher. If given as array apply each parameter on default state,on hovered,on focus,on disabled state in
+								next order: 1) default, 2)hover, 3) focus, 4) disabled </td>
+						</tr>
+						<tr>
+							<td>labelColor</td>
+							<td>string | string[]</td>
+							<td>Set color of switcher button label. If given as array apply each parameter on default state, on hovered,on focus,on disabled
+								state in next order: 1) default, 2)hover, 3) focus, 4) disabled </td>
+						</tr>
+					</table>
+
+					<h3>Table</h3>
+					<p>Usage example</p>
+<pre>
+<code class="html">
+&lt;tc-table [rows]=&quot;rows&quot; [config]=&quot;config&quot;&gt;
+ &lt;tc-column [columnTitle]=&quot;'#'&quot; [columnName]=&quot;'number'&quot;&gt; &lt;/tc-column&gt;
+ &lt;tc-column [columnTitle]=&quot;'Person'&quot; [columnName]=&quot;'person'&quot;&gt;&lt;/tc-column&gt;
+ &lt;tc-column [columnTitle]=&quot;'Phone'&quot; [columnName]=&quot;'phone'&quot;[enableSorting]=&quot;true&quot;&gt;
+ &lt;ng-template #tableBodyTemplate let-value&gt; &lt;span class=&quot;nowrap&quot;&gt; {{ value }}&lt;/span&gt; &lt;/ng-template&gt;
+ &lt;/tc-column&gt;
+&lt;/tc-table&gt;
+</code>
+</pre>	
+					<p>Table require data to be passed as rows parameter. Data example:</p>
+<pre>
+<code class="json">
+{
+ "number": "1",
+ "img": "",
+ "person": "Ronald Hilbert",
+ "position": "developer",
+ "phone" : 	"+22 887 110 4587",
+ "email" : "robhilbert@company.com"
+},
+{
+ "number": "2",
+ "img": "",
+ "person": "Angela Simpson",
+ "position": "digital artist",
+ "phone" : 	"+22 886 112 4887",
+ "email" : "angelasimpson@company.com"
+}
+</code>
+</pre>
+					<p>Also table contain config object to manage sorting and filtering. By default sorting and filtering is enabled in table, but must be speciefied for each column. If you want to override this setting just pass new config as parametr. Table config structure is given below : </p>
+<pre>
+<code class="typescript">
+export interface ITableConfig {
+ sorting?: boolean;
+ filtering: {
+  filterString?: string;
+  filtering?: boolean;
+ }
+}
+</code>
+</pre>
+					<p>Table parameters:</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>rows</td>
+							<td>Array&lt;any&gt;</td>
+							<td>Array with table data</td>
+						</tr>
+						<tr>
+							<td>config</td>
+							<td>ITableConfig</td>
+							<td>Global setting of table</td>
+						</tr>
+						<tr>
+							<td>pagination</td>
+							<td>boolean</td>
+							<td>If true enable pagination in table</td>
+						</tr>
+						<tr>
+							<td>itemsPerPage</td>
+							<td>number</td>
+							<td>Number of items that will be displayed on one page if pagination is enabled</td>
+						</tr>
+						<tr>
+							<td>bordered</td>
+							<td>boolean</td>
+							<td>If true add borders to all sides and cells</td>
+						</tr>
+						<tr>
+							<td>striped</td>
+							<td>boolean</td>
+							<td>If true add zebra-striping to rows </td>
+						</tr>
+						<tr>
+							<td>hovered</td>
+							<td>boolean</td>
+							<td>If true enable hover state on table rows</td>
+						</tr>
+						<tr>
+							<td>search</td>
+							<td>boolean</td>
+							<td>If true enable search in table and display input above the table</td>
+						</tr>
+						<tr>
+							<td>borderColor</td>
+							<td>string</td>
+							<td>Set border color of table</td>
+						</tr>
+						<tr>
+							<td>borderStyle</td>
+							<td>string</td>
+							<td>Set border-style of the table</td>
+						</tr>
+						<tr>
+							<td>contentBgColor</td>
+							<td>string</td>
+							<td>Set background color of table content</td>
+						</tr>
+						<tr>
+							<td>contentColor</td>
+							<td>string</td>
+							<td>Set text color of table content</td>
+						</tr>
+						<tr>
+							<td>headerBgColor</td>
+							<td>string</td>
+							<td>Set backgroud color of table header </td>
+						</tr>
+						<tr>
+							<td>headerColor</td>
+							<td>string</td>
+							<td>Set text color of table header</td>
+						</tr>
+						<tr>
+							<td>headerAlign</td>
+							<td>string</td>
+							<td>Set text align to header of the table</td>
+						</tr>
+						<tr>
+							<td>rowAlign</td>
+							<td>string</td>
+							<td>Set text align to content of the table</td>
+						</tr>
+
+					</table>
+					<p>To display data at table you need to pass <code>tc-column</code> component with columnName parameter or custom data template</p>
+					<p><code>tc-column</code> parameters :</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>columnTitle</td>
+							<td>string</td>
+							<td>Displayed title of the column</td>
+						</tr>
+						<tr>
+							<td>columnName</td>
+							<td>string</td>
+							<td>Name of the value that will be taken from table data and displayed in column</td>
+						</tr>
+						<tr>
+							<td>enableFiltering</td>
+							<td>boolean</td>
+							<td>If true enable filtering in this column</td>
+						</tr>
+						<tr>
+							<td>enableSorting</td>
+							<td>boolean</td>
+							<td>If true enable sorting of this column</td>
+						</tr>
+					</table>
+					<p>If you want to display non-text data or data not from data array just pass custom template into <code>tc-column</code> :</p>
+<pre>
+<code class="html">
+&lt;tc-column [columnTitle]=&quot;'Your column name'&quot; &gt;
+  &lt;ng-template #tableBodyTemplate &gt; // Your value or component ;&lt;/ng-template&gt;
+&lt;/tc-column&gt;
+</code>
+</pre>
+					<p>In this case use <code>#tableBodyTemplate</code> for table body and <code>#headerBodyTemplate</code> for custom header. </p>
+					<p>If you want to modify or use data from cell or row define cell or row value in <code>ng-template</code>. To do so just define variable:
+					<code>let-variable</code>, if you just define value it automatically get value from the cell or you can use 
+					<code>let-variable="row"</code>  to define variable to row value and be able to acces data from others columns :</p><br>
+<pre>
+<code class="html">
+// Use let-value to get value of cell, in this case 'columnName' must be passed
+&lt;tc-column [columnTitle]=&quot;'Your column name'&quot; [columnName]="ColumnName" &gt;
+  &lt;ng-template #tableBodyTemplate <b>let-value</b> &gt;  &lt;button&gt; {{ value }} &lt;/button&gt; &lt;/ng-template&gt; 
+&lt;/tc-column&gt;
+
+
+// Use let-row="row" to get row value, then you able to acces values from other columns
+&lt;tc-column [columnTitle]=&quot;'Your column name'&quot; &gt;
+  &lt;ng-template #tableBodyTemplate <b>let-row="row"</b> &gt; {{ row['columnName'] * row['anotherColumnName'] }} &lt;/ng-template&gt;
+&lt;/tc-column&gt;
+
+</code>
+</pre>
+					<h3>Textarea</h3>
+					<p>Multiline input control</p>
+					<p>Usage example:</p>
+
+<pre>
+<code class="html">
+ &lt;tc-textarea [placeholder]=&quot;'With placeholder'&quot;&gt;&lt;/tc-textarea&gt;
+</code>
+</pre>
+					<p>Textarea parameters:</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>name</td>
+							<td>string</td>
+							<td>Set name of textarea</td>
+						</tr>
+						<tr>
+							<td>placeholder</td>
+							<td>string</td>
+							<td>Placeholder of text area</td>
+						</tr>
+						<tr>
+							<td>charLimiter</td>
+							<td>number | ITextareLimiter</td>
+							<td>Set maximum char number</td>
+						</tr>
+						<tr>
+							<td>required</td>
+							<td>boolean</td>
+							<td>If true make textarea required</td>
+						</tr>
+						<tr>
+							<td>innerValue</td>
+							<td>string</td>
+							<td>Set innerValue of textarea</td>
+						</tr>
+					</table>
+				</section><!-- .section -->
+
+				<section id="directives" class="section">
+					<h2 class="section-title">UI directives</h2>
+
+					<h3>bg-color directive</h3>
+					<p>Usage example:</p>
+<pre>
+<code class="html">
+&lt;element-selector <b>[tcBgColor]="'your color'"</b>&gt; &lt;/element-selector&gt;
+</code>
+</pre>
+					<p><code>bg-color</code> directive parameters :</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>tcBgColor</td>
+							<td>string | string[]</td>
+							<td>Set bg color of the element. If given as array apply alternately each parameter for default and hover state.</td>
+						</tr>
+					</table>
+
+					<h3>border-color directive</h3>
+					<p>Usage example :</p>
+<pre>
+<code class="html">
+&lt;element-selector <b>[tcBorderColor]="'your color'"</b>&gt; &lt;/element-selector&gt;
+</code>
+</pre>
+					<p><code>border-color</code> directive parameters :</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>tcborderColor</td>
+							<td>string | string[]</td>
+							<td>Set border color of the element. If given as array apply alternately each parameter for default and hover state.</td>
+						</tr>
+					</table>
+
+					<h3>border-style directive</h3>
+					<p>Usage example :</p>
+<pre>
+<code class="html">
+&lt;element-selector <b>[tcBorderStyle]="'dashed'"</b>&gt; &lt;/element-selector&gt;
+</code>
+</pre>
+					<p><code>border-style</code> directive parameters :</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>tcborderstyle</td>
+							<td>string | string[]</td>
+							<td>Set border style of the element. If given as array apply alternately each parameter for default and hover state.</td>
+						</tr>
+					</table>
+
+					<h3>color directive</h3>
+					<p>Usage example:</p>
+<pre>
+<code class="html">
+&lt;element-selector <b>[tcColor]="'your color'"</b>&gt; &lt;/element-selector&gt;
+</code>
+</pre>
+					<p><code>color</code> directive parameters :</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>tcColor</td>
+							<td>string | string[]</td>
+							<td>Set text color of the element. If given as array apply alternately each parameter for default and hover state.</td>
+						</tr>
+					</table>
+
+					<h3>font-size directive</h3>
+					<p>Usage example:</p>
+<pre>
+<code class="html">
+&lt;element-selector <b>[tcFontSize]="'12px'"</b>&gt; &lt;/element-selector&gt;
+</code>
+</pre>
+					<p><code>font-size</code> directive parameters :</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>tcFontSize</td>
+							<td>string | number</td>
+							<td>Set font size of the element</td>
+						</tr>
+					</table>
+
+					<h3>gradient directive</h3>
+					<p>Usage example :</p>
+<pre>
+<code class="html">
+&lt;element-selector <b>[tcGradient]="['first color','second color']"</b>&gt;&lt;/element-selector&gt;
+</code>
+</pre>
+					<p><code>gradient</code> directive parameters :</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>tcGradient</td>
+							<td>string[]</td>
+							<td>Apply gradient background to element.</td>
+						</tr>
+					</table>
+
+					<h3>shape directive</h3>
+					<p>Usage example:</p>
+<pre>
+<code class="html">
+&lt;element-selector <b>[tcShape]="15"</b>&gt;  &lt;/element-selector&gt;
+</code>
+</pre>
+					<p><code>shape</code> directive parameters :</p>
+					<table class="table table-bordered">
+						<tr>
+							<th>Parameter</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+						<tr>
+							<td>tcShape</td>
+							<td>number | string</td>
+							<td>Set element border-radius .</td>
+						</tr>
+					</table>
+				</section><!-- .section -->
+			</div>
+		</div>
+	</div>
+
+<!--[if (!IE)|(gt IE 8)]><!-->
+  <script src="js/jquery-2.1.3.min.js"></script>
+<!--<![endif]-->
+
+<!--[if lte IE 8]>
+  <script src="js/jquery-1.9.1.min.js"></script>
+<![endif]-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
