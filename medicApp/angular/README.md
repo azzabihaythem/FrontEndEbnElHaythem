@@ -29,13 +29,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Docker
 docker build --tag node-docker .
 `
-## run project from Dockerfile`
+## run project from docker Compose`
 
-docker build -t angular-template .
-
-docker run -p 4201:4201 angular-template
-
-ng serve --host 0.0.0.0 --port 4201
+docker-compose up
 
 ##RUN AND GO INSIDE CONTAINER
 docker run -it -p 4201:4201 angular-template bash
