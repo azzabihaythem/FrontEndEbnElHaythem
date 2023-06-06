@@ -22,7 +22,6 @@ import { UserPost } from 'src/app/model/UserPost';
 import { PriseEnChargees } from 'src/app/model/PriseEnChargees';
 import { UserEdit } from 'src/app/model/UserEdit';
 import { PatientwID } from 'src/app/model/PatientwID';
-
 //import { ToastrService } from 'ngx-toastr';
 
 
