@@ -1,12 +1,18 @@
-<div class="row">
+<div class="row"  *ngIf="patientInfo">
   <div class="col col-12 col-md-6 mb-4">
-    <form
+    <!-- <form
       [formGroup]="patientForm"
       novalidate
       class="new-doctor-form"
       (ngSubmit)="saveData(patientForm)"
       *ngIf="patientInfo"
-    >
+    > -->
+    
+    <form
+       [formGroup]="patientForm"
+          novalidate>
+       
+                               
       <tc-form-group>
         <tc-form-label>Photo</tc-form-label>
         <input type="file" accept="image/*" (change)="onFileChanged($event)" #fileInput hidden>
@@ -26,33 +32,52 @@
         </div>
       </tc-form-group>
 
-      <tc-form-group>
+      <!-- <tc-form-group>
         <tc-form-label>Full name</tc-form-label>
-        <tc-input [placeholder]="'Name'" formControlName="name"></tc-input>
-      </tc-form-group>
+        <tc-input [placeholder]="'Name'" formControlName="name" [readonly]="true"></tc-input>
+      </tc-form-group>  -->
 
+      <!-- <tc-form-group>
+        <tc-form-label>First name</tc-form-label>
+        <tc-input [placeholder]="'First name'" formControlName="firstName"[readonly]="true"></tc-input>
+      </tc-form-group> -->
+<!-- 
       <tc-form-group>
-        <tc-form-label>Id</tc-form-label>
-        <tc-input [placeholder]="'Id'" formControlName="id" [readonly]="true"></tc-input>
+        <tc-form-label>Last name</tc-form-label>
+        <tc-input [placeholder]="'Last name'" formControlName="lastName" [readonly]="true"></tc-input>
       </tc-form-group>
 
+       <tc-form-group>
+            <tc-form-label>Birthdate</tc-form-label>
+            <tc-input type="date" [placeholder]="'Birthdate'" formControlName="birthdate" [type]="'date'" [readonly]="true"></tc-input>
+          </tc-form-group> -->
+        
+<!--
       <div class="row">
-        <div class="col-12 col-sm-6">
+        
+        
+         <div class="col-12 col-sm-6">
           <tc-form-group>
             <tc-form-label>Age</tc-form-label>
             <tc-input [placeholder]="'Age'" formControlName="age" [type]="'number'"></tc-input>
           </tc-form-group>
-        </div>
+        </div> -->
 
-        <div class="col-12 col-sm-6">
+        <!-- <div class="col-12 col-sm-6">
           <tc-form-group>
             <tc-form-label>Gender</tc-form-label>
             <tc-select [placeholder]="'Gender'" formControlName="gender" [options]="gender"></tc-select>
           </tc-form-group>
-        </div>
-      </div>
+        </div> 
 
-      <tc-form-group>
+      </div>  -->
+
+       <!-- <tc-form-group>
+        <tc-form-label>Login</tc-form-label>
+        <tc-input [placeholder]="'Login'" formControlName="login"></tc-input>
+      </tc-form-group>  -->
+
+      <!-- <tc-form-group>
         <tc-form-label>Phone number</tc-form-label>
         <tc-input [placeholder]="'Number'" formControlName="number"></tc-input>
       </tc-form-group>
@@ -70,48 +95,153 @@
       <tc-form-group>
         <tc-form-label>Status</tc-form-label>
         <tc-select [placeholder]="'Status'" formControlName="status" [options]="status"></tc-select>
-      </tc-form-group>
+      </tc-form-group> -->
 
-      <button tc-button [view]="'success'" [block]="true" [disabled]="!changes || patientForm.invalid">
+      <!-- <button tc-button [view]="'success'" [block]="true" [disabled]="!changes || patientForm.invalid">
         Save changes
-      </button>
+      </button> -->
     </form>
+
+
+    <!-- ****Display Information -->
   </div>
+  <tc-card [tcGradient]="['#fff', '#fbfbfb']" [title]="'Patient information'" class="mb-md-0">
+    <div class="row align-items-center mb-3">
+<!-- MOBILE-->
+      <div class="col col-auto">
+        <tc-icon [iconClass]="'icofont-home'" [tcFontSize]="30" [tcColor]="'#8f8f90'"></tc-icon>
+      </div>
+      <div class="col">
+        <div><B>clinique</B></div>
+        {{ patient.user.clinique.nom}}
+      </div>
+    </div>
+
+<!-- FIRSTNAME-->
+    <div class="row align-items-center mb-3">
+      <div class="col col-auto">
+        <tc-icon [iconClass]="'icofont-male'" [tcFontSize]="30" [tcColor]="'#8f8f90'"></tc-icon>
+      </div>
+      <div class="col">
+        <div><B>FirstName</B></div>
+        {{ patient.user.firstName}}
+      </div>
+    </div>
+
+<!-- LASTNAME-->
+    <div class="row align-items-center mb-3">
+      <div class="col col-auto">
+        <tc-icon [iconClass]="'icofont-spinner'" [tcFontSize]="30" [tcColor]="'#8f8f90'"></tc-icon>
+      </div>
+      <div class="col">
+        <div><B>LastName</B></div>
+        {{ patient.user.lastName}}
+      </div>
+    </div>
+
+<!--birthdate-->
+    <div class="row align-items-center">
+      <div class="col col-auto">
+        <tc-icon [iconClass]="'icofont-telescope'" [tcFontSize]="30" [tcColor]="'#8f8f90'"></tc-icon>
+      </div>
+      <div class="col">
+        <div><B>BirthDate</B></div>
+        {{ patient.user.birthDate | date: 'dd/MM/yyyy' }}
+      </div>
+    </div>
+       <br>
+    <div class="row align-items-center mb-3">
+      <div class="col col-auto">
+        <tc-icon [iconClass]="'icofont-slack'" [tcFontSize]="30" [tcColor]="'#8f8f90'"></tc-icon>
+      </div>
+      <div class="col">
+        <div><B>Login</B></div>
+        {{ patient.user.login }}
+      </div>
+    </div>
+
+  </tc-card> 
+  <tc-card [title]="'Patient details'" class="mb-0 mt-4">
+    <tc-table [rows]="billings" [hovered]="true" [headerBgColor]="'#336cfb'" [headerColor]="'#fff'">
+      <tc-table-col [columnTitle]="'Affile'" [columnName]="'Affile'" [enableSorting]="true">
+        <ng-template #tableTDTemplate let-value>
+          <span [tcColor]="'#a5a5a5'">{{ patient.affile}}</span>
+        </ng-template>
+      </tc-table-col>
+      <tc-table-col [columnTitle]="'Doit'" [columnName]="'doit'" [enableSorting]="true">
+        <ng-template #tableTDTemplate let-value>
+          <strong>{{patient.doit}}</strong>
+        </ng-template>
+      </tc-table-col>
+      <tc-table-col [columnTitle]="'N°Affile'" [columnName]="'N°Affile'" [enableSorting]="true">
+        <ng-template #tableTDTemplate let-value>
+          <strong>{{patient.numAffiliation }}</strong>
+        </ng-template>
+      </tc-table-col>
+      <tc-table-col [columnTitle]="'SeanceDays'" [columnName]="'SeanceDays'" [enableSorting]="true">
+        <ng-template #tableTDTemplate let-value>
+          <span class="nowrap" [tcColor]="'#a5a5a5'">{{ patient.seanceDays }} </span>
+        </ng-template>
+      </tc-table-col>
+
+      <tc-table-col [columnTitle]="'Take Over'" [columnName]="'Take Over'" [enableSorting]="true">
+        <ng-template #tableTDTemplate let-value>
+           <!-- <span class="nowrap" [tcColor]="'#a5a5a5'"  >{{patient?.priseEnCharges[0]?.startDate | date: 'dd/MM/yyyy'}}</span>  -->
+           <span>{{patient.priseEnCharges[patient.priseEnCharges.length - 1].startDate| date: 'dd/MM/yyyy'}}</span>
+          <!-- <span class="nowrap" [tcColor]="'#a5a5a5'"*ngFor="let priseEnCharge of patients.priseEnCharges" >
+          {{priseEnCharge.startDate | date: 'dd/MM/yyyy' }}       
+        </span> -->
+        </ng-template>
+      </tc-table-col>
+      
+
+       <!-- <tc-table-col [columnTitle]="'Take Over'" [columnName]="'Take Over'" [enableSorting]="true">
+        <ng-template #tableTDTemplate let-value>
+          <ng-container *ngFor="let patient of patients">
+            {{patient.priseEnCharges}}
+             <ng-container *ngFor="let priseenCharge of patient.priseenCharges">
+              {{priseenCharge}}
+            </ng-container> 
+      </ng-container>
+        </ng-template>
+      </tc-table-col>  -->
+
+      <!-- <tc-table-col [columnTitle]="'Take Over'" [columnName]="'Take Over'" [enableSorting]="true">
+        <ng-template #tableTDTemplate let-value>
+          <span class="nowrap" [tcColor]="'#a5a5a5'">
+            <ng-container console.log(patients) *ngFor="let priseenCharge of patients.priseenCharges | keyvalue">
+              <div *ngIf="priseenCharge.key === 'startDate'">{{ priseenCharge.value }}</div>
+            </ng-container>
+          </span>
+        </ng-template>
+      </tc-table-col> -->
+    
+      <!-- <tc-table-col [columnTitle]="'Take Over'" [columnName]="'Take Over'" [enableSorting]="true">
+        <ng-template #tableTDTemplate let-value>
+          <span class="nowrap" [tcColor]="'#a5a5a5'" *ngFor="let patient of patients " >
+          <span class="nowrap" [tcColor]="'#a5a5a5'"*ngFor="let priseEnCharge of patient.priseenCharges" >{{priseEnCharge.startDate}}</span>
+        </span>
+        </ng-template>
+      </tc-table-col> -->
+
+      <!-- <tc-table-col [columnTitle]="'Tax'" [columnName]="'tax'" [enableSorting]="true"></tc-table-col> -->
+      <!-- <tc-table-col [columnTitle]="'Discount'" [columnName]="'discount'" [enableSorting]="true"></tc-table-col> -->
+      
+      <tc-table-col [columnTitle]="'Total'" [columnName]="'total'" [enableSorting]="true">
+        <!-- <ng-template #tableTDTemplate let-value>
+          <span class="nowrap" [tcColor]="'#a5a5a5'">
+            <ng-container console.log(patients) *ngFor="let priseenCharge of patients.priseenCharges | keyvalue">
+              <div *ngIf="priseenCharge.key === 'number'">{{ priseenCharge.value }}</div>
+            </ng-container>
+          </span>
+        </ng-template> -->
+      </tc-table-col>
+    </tc-table>
+  </tc-card>
 
   <div class="col col-12 col-md-6 mb-4">
     <tc-v-timeline [data]="patientTimeline" [showIcons]="false" [align]="'left'"></tc-v-timeline>
   </div>
 </div>
 
-<tc-card [title]="'Billings'" class="mb-0 mt-4">
-  <tc-table [rows]="billings" [hovered]="true" [headerBgColor]="'#336cfb'" [headerColor]="'#fff'">
-    <tc-table-col [columnTitle]="'Bill NO'" [columnName]="'billNo'" [enableSorting]="true">
-      <ng-template #tableTDTemplate let-value>
-        <span [tcColor]="'#a5a5a5'">{{ value }}</span>
-      </ng-template>
-    </tc-table-col>
-    <tc-table-col [columnTitle]="'Patient'" [columnName]="'patient'" [enableSorting]="true">
-      <ng-template #tableTDTemplate let-value>
-        <strong>{{ value }}</strong>
-      </ng-template>
-    </tc-table-col>
-    <tc-table-col [columnTitle]="'Doctor'" [columnName]="'doctor'" [enableSorting]="true">
-      <ng-template #tableTDTemplate let-value>
-        <strong>{{ value }}</strong>
-      </ng-template>
-    </tc-table-col>
-    <tc-table-col [columnTitle]="'Date'" [columnName]="'billDate'" [enableSorting]="true">
-      <ng-template #tableTDTemplate let-value>
-        <span class="nowrap" [tcColor]="'#a5a5a5'">{{ value }}</span>
-      </ng-template>
-    </tc-table-col>
-    <tc-table-col [columnTitle]="'Charges'" [columnName]="'charges'" [enableSorting]="true"></tc-table-col>
-    <tc-table-col [columnTitle]="'Tax'" [columnName]="'tax'" [enableSorting]="true"></tc-table-col>
-    <tc-table-col [columnTitle]="'Discount'" [columnName]="'discount'" [enableSorting]="true"></tc-table-col>
-    <tc-table-col [columnTitle]="'Total'" [columnName]="'total'" [enableSorting]="true">
-      <ng-template #tableTDTemplate let-value>
-        <strong>{{ value }}</strong>
-      </ng-template>
-    </tc-table-col>
-  </tc-table>
-</tc-card>
+

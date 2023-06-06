@@ -1,23 +1,24 @@
-<div
-  class="app-container"
+<div 
+  class="app-container"  *ngIf="appSettings"
   [ngClass]="{ boxed: appSettings.boxed, scrolled: scrolled, loaded: loaded }"
-  *ngIf="appSettings"
+ 
 >
+ <!--*ngIf="appSettings" -->
   <!-- Horizontal navbar -->
-  <navbar
+  <navbar 
     [boxed]="appSettings.boxed"
     [tcBgColor]="appSettings.topbarBg"
     [tcColor]="appSettings.topbarColor"
     [minHeight]="'4.28571429rem'"
   >
-    <button
+    <button 
       class="no-style navbar-toggle d-lg-none"
       (click)="toggleSidebar(true)"
     >
       <span></span><span></span><span></span>
     </button>
 
-    <search [data]="searchData" [layout]="'vertical'" class="d-none d-md-block"></search>
+    <search *ngIf="this.isButtonVisible" [data]="searchData" [layout]="'vertical'" class="d-none d-md-block"></search>
 
     <actions [layout]="'vertical'"></actions>
 
@@ -26,7 +27,7 @@
   <!-- end Horizontal navbar -->
 
   <!-- Vertical navbar -->
-  <navbar
+  <navbar *ngIf="this.isButtonVisible"
     [orientation]="'vertical'"
     [tcBgColor]="appSettings.sidebarBg"
     [tcColor]="appSettings.sidebarColor"
@@ -85,8 +86,8 @@
 <!-- Modal window -->
 <ng-container>
   <ng-template #modalBody>
-    <form [formGroup]="patientForm" novalidate class="new-patient-form">
-      <tc-form-group class="avatar-box d-flex">
+    <form [formGroup]="patientForm"  (ngSubmit)="addPatient(patientForm)"  class="new-patient-form">
+      <!-- <tc-form-group class="avatar-box d-flex">
         <input type="file" accept="image/*" (change)="onFileChanged($event)" #fileInput hidden>
 
         <tc-avatar [src]="currentAvatar"></tc-avatar>
@@ -100,40 +101,101 @@
         >
           Select image
         </button>
+      </tc-form-group> -->
+
+      <tc-form-group>
+
+        <div class="separator">
+          <label for="affile">Patient information 1:</label>
+                  <hr style="height: 0px; margin: 15px 0; background-color: black;">
+       </div>
+        <tc-input [placeholder]="'affile'" formControlName="affile"></tc-input>
+      </tc-form-group>
+     
+      <tc-form-group>
+        <tc-input [placeholder]="'desactivationDate'" type="date" formControlName="desactivationDate"></tc-input>
       </tc-form-group>
 
       <tc-form-group>
-        <tc-input [placeholder]="'Name'" formControlName="name"></tc-input>
+        <tc-input [placeholder]="'doit'" formControlName="doit"></tc-input>
       </tc-form-group>
 
       <tc-form-group>
-        <tc-input [placeholder]="'Number'" [type]="'number'" formControlName="number"></tc-input>
+        <tc-input [placeholder]="'numAffiliation'" formControlName="numAffiliation"></tc-input>
       </tc-form-group>
+
+      <div class="col-12 col-sm-6">
+        <tc-form-group>
+          <tc-select [placeholder]="'Seance Days'" formControlName="seanceDays" [options]="daysOfWeek" [multiple]="true"></tc-select>
+        </tc-form-group>
+      </div>
+
+      <div class="separator">
+        <label for="affile">Prise En charges :</label>
+                <hr style="height: 0px; margin: 15px 0; background-color: black;">
+     </div>
+
+      <tc-form-group>
+        <tc-input [placeholder]="'number'" formControlName="number"></tc-input>
+      </tc-form-group>
+
+      <tc-form-group>
+        <label for="affile">Start Date :</label>
+        <tc-input [placeholder]="'startDate'" type="Date" formControlName="startDate"></tc-input>
+      </tc-form-group>
+
+      <tc-form-group>
+        <label for="affile">End Date :</label>
+        <tc-input [placeholder]="'enDate'" type="Date" formControlName="endDate"></tc-input>
+      </tc-form-group>
+
+      <div class="separator">
+        <label for="affile">Patient information 2  :</label>
+                <hr style="height: 0px; margin: 15px 0; background-color: black;">
+     </div>
+      <tc-form-group>
+        <tc-input [placeholder]="'FirstName'" formControlName="firstName"></tc-input>
+      </tc-form-group>
+
+      <tc-form-group>
+        <tc-input [placeholder]="'lasttName'" formControlName="lastName"></tc-input>
+      </tc-form-group>
+
+      <tc-form-group>
+        <tc-input [placeholder]="'Login'" formControlName="login"></tc-input>
+      </tc-form-group>
+
+      <tc-form-group>
+        <tc-input [placeholder]="'BirthDate'" [type]="'date'"  formControlName="birthDate"></tc-input>
+      </tc-form-group>
+
+      <tc-form-group>
+        <tc-input [placeholder]="'Password'" formControlName="password"></tc-input>
+      </tc-form-group>
+
+
 
       <div class="row">
-        <div class="col-12 col-sm-6">
+       <!--  <div class="col-12 col-sm-6">
           <tc-form-group>
             <tc-input [placeholder]="'Age'" [type]="'number'" formControlName="age"></tc-input>
           </tc-form-group>
-        </div>
+        </div> -->
 
-        <div class="col-12 col-sm-6">
-          <tc-form-group>
-            <tc-select [placeholder]="'Gender'" formControlName="gender" [options]="gender"></tc-select>
-          </tc-form-group>
-        </div>
+      
       </div>
 
-      <tc-form-group class="mb-0">
+      <!-- <tc-form-group class="mb-0">
         <tc-textarea [placeholder]="'Address'" formControlName="address"></tc-textarea>
-      </tc-form-group>
+      </tc-form-group> -->
     </form>
   </ng-template>
 
   <ng-template #modalFooter>
     <div class="actions justify-content-between">
       <button tc-button [type]="'button'" [view]="'error'" (click)="closeModal()">Cancel</button>
-      <button tc-button [view]="'info'" [disabled]="patientForm.invalid" (click)="addPatient(patientForm)">
+      <!-- <button tc-button [view]="'info'" [disabled]="patientForm.invalid" (click)="addPatient(patientForm)"> -->
+        <button tc-button type="submit" [disabled]="patientForm.invalid" (click)="addPatient(patientForm)"  [view]="'info'" >
         Add patient
       </button>
     </div>

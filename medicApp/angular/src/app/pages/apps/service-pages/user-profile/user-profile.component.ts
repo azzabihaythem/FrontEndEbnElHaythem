@@ -5,6 +5,9 @@ import { IAppState } from '../../../../interfaces/app-state';
 import { HttpService } from '../../../../services/http/http.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IOption } from '../../../../ui/interfaces/option';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/model/User';
+import { UserPost } from 'src/app/model/UserPost';
 
 @Component({
   selector: 'page-user-profile',
@@ -19,11 +22,16 @@ export class PageUserProfileComponent extends BasePageComponent implements OnIni
   currentAvatar: string | ArrayBuffer;
   defaultAvatar: string;
   changes: boolean;
+  isLoginFailed = false;
+
+  user: UserPost;
+
 
   constructor(
     store: Store<IAppState>,
     httpSv: HttpService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private userService: UserService
   ) {
     super(store, httpSv);
 
@@ -43,7 +51,7 @@ export class PageUserProfileComponent extends BasePageComponent implements OnIni
           title: 'User profile'
         }
       ]
-    };
+    };/*
     this.gender = [
       {
         label: 'Male',
@@ -62,8 +70,8 @@ export class PageUserProfileComponent extends BasePageComponent implements OnIni
       {
         label: 'Pending',
         value: 'pending'
-      }
-    ];
+      } 
+    ];*/
     this.defaultAvatar = 'assets/content/anonymous-400.jpg';
     this.currentAvatar = this.defaultAvatar;
     this.changes = false;
@@ -73,6 +81,26 @@ export class PageUserProfileComponent extends BasePageComponent implements OnIni
     super.ngOnInit();
 
     this.getData('assets/data/user-profile.json', 'userInfo', 'loadedDetect');
+
+
+    var id = localStorage.getItem("userId")
+
+    this.userService.getUserbyId(id).subscribe({
+      next: (res: UserPost) => { 
+        this.user = res;
+        console.log('profile test resP*********** : ', res);
+        
+
+      }
+  
+      ,error: err => {
+        //this.errorMessage = err.error.message;
+        this.isLoginFailed = true;
+        console.log(err,'ereuuur ');
+      }
+    });
+  
+
   }
 
   ngOnDestroy() {

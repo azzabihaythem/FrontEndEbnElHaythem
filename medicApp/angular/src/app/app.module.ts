@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
@@ -16,6 +16,10 @@ import { PagesModule } from './pages/pages.module';
 import { pageDataReducer } from './store/reducers/page-data.reducer';
 import { appSettingsReducer } from './store/reducers/app-settings.reducer';
 import { patientsReducer } from './store/reducers/patients.reducer';
+import { AuthInterceptor, authInterceptorProviders } from './helpers/auth.interceptor'; //added new
+import { FormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -25,12 +29,14 @@ import { patientsReducer } from './store/reducers/patients.reducer';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,//added new
     RouterModule.forRoot(ROUTES, { relativeLinkResolution: 'legacy' }),
     StoreModule.forRoot({
       pageData: pageDataReducer,
       appSettings: appSettingsReducer,
       patients: patientsReducer
     }),
+    
     RoutingModule,
     LayoutModule,
     UIModule,
@@ -38,7 +44,9 @@ import { patientsReducer } from './store/reducers/patients.reducer';
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    { provide: NZ_I18N, useValue: en_US }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: NZ_I18N, useValue: en_US } ,
+    authInterceptorProviders //added new
   ],
   bootstrap: [AppComponent],
   schemas: [

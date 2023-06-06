@@ -5,7 +5,7 @@
       novalidate
       class="mb-4"
       (ngSubmit)="saveData(userForm)"
-    >
+     >
       <tc-form-group>
         <tc-form-label>Photo</tc-form-label>
         <input type="file" accept="image/*" (change)="onFileChanged($event)" #fileInput hidden>
@@ -38,23 +38,24 @@
       <div class="row">
         <div class="col-12 col-sm-6">
           <tc-form-group>
-            <tc-form-label>Age</tc-form-label>
-            <tc-input [placeholder]="'Age'" formControlName="age" [type]="'number'"></tc-input>
+            <tc-form-label>Birthdate</tc-form-label>
+            <tc-input type="date" [placeholder]="'Birthdate'" formControlName="birthdate" [type]="'date'"></tc-input>
           </tc-form-group>
         </div>
-
+<!--  GENDER ***
         <div class="col-12 col-sm-6">
           <tc-form-group>
             <tc-form-label>Gender</tc-form-label>
             <tc-select [placeholder]="'Gender'" formControlName="gender" [options]="gender"></tc-select>
           </tc-form-group>
-        </div>
-      </div>
+        </div>-->
+      </div> . 
 
+      <!--
       <tc-form-group>
         <tc-form-label>Phone number</tc-form-label>
         <tc-input [placeholder]="'Number'" formControlName="number"></tc-input>
-      </tc-form-group>
+      </tc-form-group> 
 
       <tc-form-group>
         <tc-form-label>Address</tc-form-label>
@@ -64,18 +65,31 @@
       <tc-form-group>
         <tc-form-label>Last visit</tc-form-label>
         <tc-input [placeholder]="'Last visit'" formControlName="lastVisit" [readonly]="true"></tc-input>
+      </tc-form-group> -->
+
+      <tc-form-group>
+        <tc-form-label>Login</tc-form-label>
+        <tc-input [placeholder]="'Login'" formControlName="login"></tc-input>
       </tc-form-group>
 
       <tc-form-group>
+        <tc-form-label>Password</tc-form-label>
+        <tc-input [placeholder]="'Password'" formControlName="password"></tc-input>
+      </tc-form-group>
+<!--
+      <tc-form-group>
         <tc-form-label>Status</tc-form-label>
         <tc-select [placeholder]="'Status'" formControlName="status" [options]="status"></tc-select>
-      </tc-form-group>
+      </tc-form-group> -->
 
       <div class="row">
         <div class="col">
-          <button tc-button [view]="'success'" [disabled]="!changes || userForm.invalid">
+          <!--<button tc-button [view]="'success'" type="submit"  [disabled]="!changes || userForm.invalid">
             Save changes
-          </button>
+          </button> -->
+          <button tc-button [view]="'success'" type="submit"  [disabled]="userForm.invalid">
+            Save changes
+          </button> 
         </div>
         <div class="col text-right">
           <button

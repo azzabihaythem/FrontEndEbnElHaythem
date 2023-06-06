@@ -1,14 +1,23 @@
-<form [formGroup]="registerForm" novalidate>
+<form [formGroup]="registerForm" (ngSubmit)="registerSubmited(registerForm)" novalidate>
   <tc-form-group>
-    <tc-input [placeholder]="'Name'" formControlName="name"></tc-input>
+    <tc-input id="firstname" [placeholder]="'FirstName'" formControlName="firstname"></tc-input>
+  </tc-form-group>
+
+  <!-- <form [formGroup]="registerForm" novalidate> -->
+    <tc-form-group>
+      <tc-input id="lastname" [placeholder]="'LastName'" formControlName="lastname"></tc-input>
+    </tc-form-group>
+
+  <tc-form-group>
+    <tc-input type="date" id="birthdate" [placeholder]="'birthdate'" [type]="'date'" formControlName="birthdate"></tc-input>
   </tc-form-group>
 
   <tc-form-group>
-    <tc-input [placeholder]="'Email address'" [type]="'email'" formControlName="email"></tc-input>
+    <tc-input id="login" [placeholder]="'login'" [type]="'login'" formControlName="login"></tc-input>
   </tc-form-group>
 
   <tc-form-group>
-    <tc-input [placeholder]="'Password'" [type]="'password'" formControlName="pass"></tc-input>
+    <tc-input id="pass" [placeholder]="'Password'" [type]="'password'" formControlName="pass"></tc-input>
   </tc-form-group>
 
   <tc-form-group>
@@ -16,7 +25,7 @@
   </tc-form-group>
 
   <div class="actions justify-content-between">
-    <button tc-button [view]="'accent'" [beforeIcon]="'icofont-plus'">
+    <button type="submit" tc-button [view]="'accent'" [beforeIcon]="'icofont-plus'">
       Register
     </button>
   </div>

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 import { HttpService } from '../../../services/http/http.service';
 
@@ -17,7 +18,8 @@ export class ActionsComponent implements OnInit {
 
   constructor(
     private httpSv: HttpService,
-    private router: Router
+    private router: Router,
+    private tokenservice: TokenStorageService
   ) {
     this.notifications = [];
     this.messages = [];
@@ -49,7 +51,11 @@ export class ActionsComponent implements OnInit {
 
   goTo(event: Event, link: string, layout: string = '') {
     event.preventDefault();
-
+   // this.tokenservice.signOut ;
+   if(link === 'sign-in'){
+    localStorage.clear();
+    sessionStorage.clear();
+  }
     this.onCloseDropdown();
 
     setTimeout(() => {
