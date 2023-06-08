@@ -49,6 +49,7 @@
     "@angular-devkit/build-angular": "13.1.2",
     "@angular/cli": "13.1.2",
     "@angular/compiler-cli": "13.1.1",
+    "@openapitools/openapi-generator-cli": "^2.6.0",
     "@types/jasmine": "3.6.0",
     "@types/node": "12.11.1",
     "dart-sass": "1.25.0",
