@@ -9,6 +9,7 @@ const API_PatientuserById = 'http://localhost:8080/v1/patients/userid/';
 const API_CreatePatient = 'http://localhost:8080/v1/patients';
 const API_editPatient = 'http://localhost:8080/v1/patient/update/';
 const API_editPatients = 'http://localhost:8080/v1/patient/update?PId=';
+const API_dPatients = 'http://localhost:8080/v1/dpatients/ ' ;
 
 
 
@@ -98,4 +99,20 @@ editPatient(patient: Patient , PId: any): Observable<any> {
  
   return  this.http.put<any>(API_editPatients+PId, patient,  {observe: 'response', headers  });
 }
+
+deletePatient(PId: any): Observable<any> {
+  const token = localStorage.getItem('Authorization');
+  const headers = new HttpHeaders();
+  headers.append('Content-Type', 'application/json');
+  headers.append('Access-Control-Allow-Origin','*');
+  headers.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+  headers.append('Access-Control-Allow-Credentials', 'true');
+  headers.append('Access-Control-Allow-Headers', 'Authorization')
+  headers.append('Authorization', `${token}`);
+  headers.append('Access-Control-Expose-Headers', 'Authorization');
+ 
+  return  this.http.delete<any>(API_dPatients+PId, {headers});
+  
+}
+
 }

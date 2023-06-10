@@ -177,7 +177,23 @@ export class PagePatientsComponent extends BasePageComponent implements OnInit, 
 
   // delete patient
   remove(id: string) {
-    this.store.dispatch(new PatientsActions.Delete(id));
+    //this.store.dispatch(new PatientsActions.Delete(id));
+    //var id = localStorage.getItem("selectedPatientId") ;
+      this.patientService.deletePatient(id).subscribe({
+        next: (Pdata: PatientwID) => {
+          console.log('**** Delete Success ****', Pdata);
+            this.isSuccessful = true;
+            this.isSignUpFailed = false;
+           // this.patientForm.reset();
+            location.reload();
+        },
+        error: (err) => {
+            this.isLoginFailed = true;
+            console.log('Error:', err);
+          }
+      });
+    
+
   }
 
   // open modal window
@@ -331,7 +347,7 @@ updatePatient(patientForm: FormGroup) {
       //   //   return;
       //   // }
 
-        // Passwords don't match, update the patient data including the password
+    
         let user = new UserEdit(userId, false, patientForm.value['birthDate'].toString(), patientForm.value['firstName'], patientForm.value['lastName'], patientForm.value['login'], patientForm.value['password'], clin);
         let priseenChargesdata = new PriseEnChargees(patientForm.value['endDate'].toString(), patientForm.value['number'], patientForm.value['startDate'].toString());
         priseEnCharges.push(priseenChargesdata);
