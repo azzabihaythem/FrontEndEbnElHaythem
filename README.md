@@ -2,6 +2,8 @@
 
 #generate angular api from back swagegr
 
+https://www.youtube.com/watch?v=wtIVxvJFT2k&t=18s
+
 https://github.com/swagger-api/swagger-codegen
 
 cd C:\work\swagger-codegen\modules\swagger-codegen-cli\target
