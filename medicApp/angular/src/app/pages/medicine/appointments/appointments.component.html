@@ -2,27 +2,75 @@
   <tc-table [rows]="appointments" [hovered]="true" [pagination]="true">
     <tc-table-col [columnTitle]="'Photo'" [columnName]="'img'">
       <ng-template #tableTDTemplate let-value>
+        <div *ngFor="let seance of seance " class="table-cell">
         <tc-avatar [src]="value"></tc-avatar>
+      </div>
+      </ng-template>
+      <tc-table-col [columnTitle]="' Date'" [columnName]="'date'" [enableSorting]="true">
+        <ng-template #tableTDTemplate let-value>
+          <div *ngFor="let seance of seance " class="table-cell">
+          <span class="nowrap" [tcColor]="'#a5a5a5'">{{ seance.date | date: 'dd/MM/yyyy' }}</span>
+        </div>
+        </ng-template>
+      </tc-table-col>
+      <tc-table-col [columnTitle]="'Start Date'" [columnName]="'Sdate'" [enableSorting]="true">
+        <ng-template #tableTDTemplate let-value>
+          <div *ngFor="let seance of seance " class="table-cell">
+          <span class="nowrap" [tcColor]="'#a5a5a5'">{{ seance.patient.priseEnCharges[seance.patient.priseEnCharges.length - 1].startDate| date: 'dd/MM/yyyy'}}</span>
+        </div>
+        </ng-template>
+      </tc-table-col>
+      <tc-table-col [columnTitle]="'End Date'" [columnName]="'Edate'" [enableSorting]="true">
+        <ng-template #tableTDTemplate let-value>
+          <div *ngFor="let seance of seance " class="table-cell">
+          <span class="nowrap" [tcColor]="'#a5a5a5'">{{ seance.patient.priseEnCharges[seance.patient.priseEnCharges.length - 1].endDate| date: 'dd/MM/yyyy'}}</span>
+        </div>
+        </ng-template>
+      </tc-table-col>
+    </tc-table-col>
+    <tc-table-col [columnTitle]="'SeanceDays/week'" [columnName]="'seanceDays'" [enableSorting]="true">
+      <ng-template #tableTDTemplate let-value>
+        <div *ngFor="let seance of seance " class="table-cell">
+        <strong>{{ seance.patient.seanceDays}}</strong>
+      </div>
       </ng-template>
     </tc-table-col>
-    <tc-table-col [columnTitle]="'Name'" [columnName]="'name'" [enableSorting]="true">
+    <tc-table-col [columnTitle]="'Patient'" [columnName]="'patientName'" [enableSorting]="true">
       <ng-template #tableTDTemplate let-value>
-        <strong>{{ value }}</strong>
+        <div *ngFor="let seance of seance " class="table-cell">
+        <strong>{{seance.patient.user.firstName }} {{ seance.patient.user.lastName }} </strong>
+      </div>
       </ng-template>
     </tc-table-col>
-    <tc-table-col [columnTitle]="'Email'" [columnName]="'email'" [enableSorting]="true">
+    <!-- <tc-table-col [columnTitle]="'PatientLastName'" [columnName]="'PatientLastName'" [enableSorting]="true">
       <ng-template #tableTDTemplate let-value>
+        <div *ngFor="let seance of seance " class="table-cell">
+        <strong>{{ seance.patient.user.lastName }}</strong>
+      </div>
+      </ng-template>
+    </tc-table-col> -->
+
+    
+    <tc-table-col [columnTitle]="'PatientLogin'" [columnName]="'PatientLogin'" [enableSorting]="true">
+      <ng-template #tableTDTemplate let-value>
+        <div *ngFor="let seance of seance " class="table-cell">
         <span class="d-flex align-items-center nowrap" [tcColor]="'#336cfb'">
-          <tc-icon [iconClass]="'icofont-ui-email'" [tcFontSize]="16" [padding]="0" class="me-1"></tc-icon> {{ value }}
+          <tc-icon [iconClass]="'icofont-ui-email'" [tcFontSize]="16" [padding]="0" class="me-1"></tc-icon> {{ seance.patient.user.login }}
         </span>
+      </div>
       </ng-template>
     </tc-table-col>
-    <tc-table-col [columnTitle]="'Date'" [columnName]="'date'" [enableSorting]="true">
+ 
+
+    <tc-table-col [columnTitle]="'SeanceTypeName'" [columnName]="'SeanceTypeName'" [enableSorting]="true">
       <ng-template #tableTDTemplate let-value>
-        <span class="nowrap" [tcColor]="'#a5a5a5'">{{ value }}</span>
+        <div *ngFor="let seance of seance " class="table-cell">
+        <strong>{{ seance.seanceType.typeName }}</strong>
+      </div>
       </ng-template>
     </tc-table-col>
-    <tc-table-col [columnTitle]="'Visit time'" [columnName]="'fromTo'" [enableSorting]="true">
+
+    <!-- <tc-table-col [columnTitle]="'Visit time'" [columnName]="'fromTo'" [enableSorting]="true">
       <ng-template #tableTDTemplate let-value>
         <span class="nowrap" [tcColor]="'#a5a5a5'">{{ value }}</span>
       </ng-template>
@@ -34,12 +82,17 @@
           {{ value }}
         </span>
       </ng-template>
-    </tc-table-col>
-    <tc-table-col [columnTitle]="'Doctor'" [columnName]="'doctor'" [enableSorting]="true"></tc-table-col>
-    <tc-table-col [columnTitle]="'Injury / Condition'" [columnName]="'injury'" [enableSorting]="true"></tc-table-col>
-    <tc-table-col [columnTitle]="'Actions'" [columnName]="'actions'">
+    </tc-table-col> -->
+
+    <!-- <tc-table-col [columnTitle]="'Doctor'" [columnName]="'doctor'" [enableSorting]="true"></tc-table-col>
+    <tc-table-col [columnTitle]="'Injury / Condition'" [columnName]="'injury'" [enableSorting]="true"></tc-table-col> -->
+    <tc-table-col [columnTitle]="'Actions'" [columnName]="'actions'" >
       <ng-template #tableTDTemplate let-row="row">
-        <div class="actions">
+        <div *ngFor="let seance of seance " class="table-cell">
+          <div class="actions" class="tc-btn">
+          <!-- edit button ****** -->
+          <!-- (click)="edit(row)" -->
+          <!-- (click)="setSidToLocal(seance.id);openModal(modalBody, 'Update patient info', modalFooter, seance)" -->
           <button
             tc-button
             [afterIcon]="'icofont-ui-edit'"
@@ -47,7 +100,8 @@
             [square]="true"
             [tcShape]="500"
             [size]="'sm'"
-            (click)="edit(row)"
+            
+            (click)="setSidToLocal(seance.id);edit(seance)"
           ></button>
 
           <button
@@ -57,9 +111,10 @@
             [square]="true"
             [tcShape]="500"
             [size]="'sm'"
-            (click)="remove(row)"
+            (click)="remove(seance.id)"
           ></button>
-        </div>
+         </div>
+      </div>
       </ng-template>
     </tc-table-col>
   </tc-table>
@@ -72,11 +127,11 @@
     [view]="'accent'"
     [square]="true"
     [tcShape]="500"
-    (click)="openModal(modalBody, 'Add appointment', modalFooter)"
+    (click)="isEditMode=false; openModal(modalBody, 'Add appointment', modalFooter)"
   ></button>
 </div>
 
-<!-- Modal window -->
+<!-- Modal window works on both edit and add :)-->
 <ng-container>
   <ng-template #modalBody>
     <form [formGroup]="appointmentForm" novalidate>
@@ -90,10 +145,27 @@
       </tc-form-group>
 
       <tc-form-group>
-        <tc-input [placeholder]="'Name'" formControlName="name"></tc-input>
+        <tc-input [placeholder]="'date'" formControlName="date" type="date"></tc-input>
       </tc-form-group>
 
+      <tc-form-group >
+        <!-- <tc-input [placeholder]="'SeanceTypeName'" formControlName="SeanceTypeName"></tc-input> -->
+        <select formControlName="SeanceTypeName" style="background-color: #f2f2f2; border: 1px solid #b0b6bc; border-radius: 20px; padding: 8px; font-size: 14px; color: #525961; width: 100%;">
+          <option value="">Select SeanceType</option>
+          <option *ngFor="let seanceType of seancetype"[value]="seanceType.id" >{{ seanceType.typeName }}</option>
+        </select>
+      </tc-form-group>
+      
       <tc-form-group>
+        <!-- <tc-input [placeholder]="'patientn'" formControlName="patientn"></tc-input> -->
+        <select formControlName="patientn" style="background-color: #f2f2f2; border: 1px solid #b0b6bc; border-radius: 20px; padding: 8px; font-size: 14px; color: #525961; width: 100%;">
+          <option value="">Select Patient</option>
+          <option *ngFor="let patient of patient" [value]="patient.id" >{{ patient.id }} - {{ patient.user.firstName }} {{ patient.user.lastName }} (@{{ patient.user.login }})</option>
+        </select>
+      </tc-form-group>
+
+
+      <!-- <tc-form-group>
         <tc-autocomplete [placeholder]="'Doctor'" [data]="doctors" [key]="'name'" formControlName="doctor"></tc-autocomplete>
       </tc-form-group>
 
@@ -125,7 +197,7 @@
 
       <tc-form-group class="mb-0">
         <tc-input [placeholder]="'Injury'" formControlName="injury"></tc-input>
-      </tc-form-group>
+      </tc-form-group> -->
     </form>
   </ng-template>
 

@@ -20,4 +20,17 @@
       margin: math.div($module-rem, 4);
     }
   }
+  .table-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 3;
+  }
+ 
+  
+  .align-center {
+    text-align: center;
+  }
+  
+  
 }

@@ -313,7 +313,7 @@ export class PagePatientsComponent extends BasePageComponent implements OnInit, 
   // }
 // detect form changes
 
-//update patient without erreur *****
+//button update patient without erreur *****
 updatePatient(patientForm: FormGroup) {
 
   const id = localStorage.getItem("selectedPatientId");
