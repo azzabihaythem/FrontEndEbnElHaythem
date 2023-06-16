@@ -5,34 +5,85 @@
     [pagination]="true"
     [itemsPerPage]="15"
   >
-    <tc-table-col [columnTitle]="'Bill NO'" [columnName]="'billNo'" [enableSorting]="true">
+    <tc-table-col [columnTitle]="'EXONERE'" [columnName]="'EXONERE'" [enableSorting]="true">
       <ng-template #tableTDTemplate let-value>
-        <span [tcColor]="'#a5a5a5'">{{ value }}</span>
+        <div *ngFor="let seancetype of seanceType " class="table-cell">
+        <span [tcColor]="'#a5a5a5'">{{ seancetype.EXONERE }}</span>
+        </div>
       </ng-template>
     </tc-table-col>
-    <tc-table-col [columnTitle]="'Patient'" [columnName]="'patient'" [enableSorting]="true">
+    <tc-table-col [columnTitle]="'MSP'" [columnName]="'MSP'" [enableSorting]="true">
       <ng-template #tableTDTemplate let-value>
-        <strong>{{ value }}</strong>
+        <div *ngFor="let seancetype of seanceType " class="table-cell">
+        <strong>{{ seancetype.MSP}}</strong>
+      </div>
       </ng-template>
     </tc-table-col>
-    <tc-table-col [columnTitle]="'Doctor'" [columnName]="'doctor'" [enableSorting]="true">
+    <tc-table-col [columnTitle]="'MTHTAXE'" [columnName]="'MTHTAXE'" [enableSorting]="true">
       <ng-template #tableTDTemplate let-value>
-        <strong>{{ value }}</strong>
+        <div *ngFor="let seancetype of seanceType " class="table-cell">
+        <strong>{{ seancetype.MTHTAXE }}</strong>
+        </div>
       </ng-template>
     </tc-table-col>
-    <tc-table-col [columnTitle]="'Date'" [columnName]="'billDate'" [enableSorting]="true">
+    <tc-table-col [columnTitle]="'MTTVA'" [columnName]="'MTTVA'" [enableSorting]="true">
+      <ng-template #tableTDTemplate let-value>
+        <div *ngFor="let seancetype of seanceType " class="table-cell">
+        <strong>{{ seancetype.MTTVA }}</strong>
+      </div>
+      </ng-template>
+    </tc-table-col>
+    <tc-table-col [columnTitle]="'typeName'" [columnName]="'typeName'" [enableSorting]="true">
+      <ng-template #tableTDTemplate let-value>
+        <div *ngFor="let seancetype of seanceType " class="table-cell">
+        <strong>{{ seancetype.typeName }}</strong>
+      </div>
+      </ng-template>
+    </tc-table-col>
+    <!-- <tc-table-col [columnTitle]="'Date'" [columnName]="'billDate'" [enableSorting]="true">
       <ng-template #tableTDTemplate let-value>
         <span class="nowrap" [tcColor]="'#a5a5a5'">{{ value }}</span>
       </ng-template>
-    </tc-table-col>
-    <tc-table-col [columnTitle]="'Charges'" [columnName]="'charges'" [enableSorting]="true"></tc-table-col>
+    </tc-table-col> -->
+    <!-- <tc-table-col [columnTitle]="'Charges'" [columnName]="'charges'" [enableSorting]="true"></tc-table-col>
     <tc-table-col [columnTitle]="'Tax'" [columnName]="'tax'" [enableSorting]="true"></tc-table-col>
-    <tc-table-col [columnTitle]="'Discount'" [columnName]="'discount'" [enableSorting]="true"></tc-table-col>
-    <tc-table-col [columnTitle]="'Total'" [columnName]="'total'" [enableSorting]="true">
-      <ng-template #tableTDTemplate let-value>
+    <tc-table-col [columnTitle]="'Discount'" [columnName]="'discount'" [enableSorting]="true"></tc-table-col> -->
+    <tc-table-col [columnTitle]="''" [columnName]="'total'" >
+      <!-- <ng-template #tableTDTemplate let-value>
         <strong>{{ value }}</strong>
-      </ng-template>
+      </ng-template> -->
     </tc-table-col>
+    
+    <tc-table-col [columnTitle]="'Action'" [columnName]="'action'" >
+      <ng-template #tableTDTemplate let-row="row">
+        <div *ngFor="let seancetype of seanceType " class="table-cell">
+          <div class="actions" class="tc-btn">
+          <button
+            tc-button
+            [afterIcon]="'icofont-ui-edit'"
+            [view]="'info'"
+            [square]="true"
+            [tcShape]="500"
+            [size]="'sm'"
+            
+            (click)="edit();setSidToLocal(seancetype.id);openModal(modalBody, 'Add payment', modalFooter)"
+          ></button>
+  
+          <button
+            tc-button
+            [afterIcon]="'icofont-ui-delete'"
+            [view]="'error'"
+            [square]="true"
+            [tcShape]="500"
+            [size]="'sm'"
+            (click)="remove(seancetype.id)"
+          ></button>
+         </div>
+      </div>
+      </ng-template>
+     
+    </tc-table-col>
+    
   </tc-table>
 </tc-card>
 
@@ -43,7 +94,7 @@
     [view]="'accent'"
     [square]="true"
     [tcShape]="500"
-    (click)="openModal(modalBody, 'Add payment', modalFooter)"
+    (click)="isEditMode=false;openModal(modalBody, 'Add payment', modalFooter)"
   ></button>
 </div>
 
@@ -52,36 +103,36 @@
   <ng-template #modalBody>
     <form [formGroup]="paymentForm" novalidate>
       <tc-form-group>
-        <tc-input [placeholder]="'Bill NO'" formControlName="billNo"></tc-input>
+        <tc-input [placeholder]="'EXONERE'" formControlName="EXONERE"></tc-input>
       </tc-form-group>
 
       <tc-form-group>
-        <tc-input [placeholder]="'Patient'" formControlName="patient"></tc-input>
+        <tc-input [placeholder]="'MSP'" formControlName="MSP"></tc-input>
+      </tc-form-group>
+
+      <!-- <tc-form-group>
+        <tc-autocomplete [placeholder]="'MTHTAXE'" [data]="doctors" [key]="'name'" formControlName="doctor"></tc-autocomplete>
+      </tc-form-group> -->
+
+      <tc-form-group>
+        <tc-input [placeholder]="'MTHTAXE'" formControlName="MTHTAXE"></tc-input>
       </tc-form-group>
 
       <tc-form-group>
-        <tc-autocomplete [placeholder]="'Doctor'" [data]="doctors" [key]="'name'" formControlName="doctor"></tc-autocomplete>
+        <tc-input [placeholder]="'MTTVA'" formControlName="MTTVA"></tc-input>
       </tc-form-group>
 
       <tc-form-group>
-        <tc-input [placeholder]="'Date'" formControlName="billDate"></tc-input>
+        <tc-input [placeholder]="'typeName'" formControlName="typeName"></tc-input>
       </tc-form-group>
 
-      <tc-form-group>
-        <tc-input [placeholder]="'Charges'" formControlName="charges"></tc-input>
-      </tc-form-group>
-
-      <tc-form-group>
-        <tc-input [placeholder]="'Tax'" formControlName="tax"></tc-input>
-      </tc-form-group>
-
-      <tc-form-group>
+      <!-- <tc-form-group>
         <tc-input [placeholder]="'Discount'" formControlName="discount"></tc-input>
       </tc-form-group>
 
       <tc-form-group class="mb-0">
         <tc-input [placeholder]="'Total'" formControlName="total"></tc-input>
-      </tc-form-group>
+      </tc-form-group> -->
     </form>
   </ng-template>
 
