@@ -11,6 +11,8 @@ import { IOption } from '../../../ui/interfaces/option';
 import { Content } from '../../../ui/interfaces/modal';
 import * as PatientsActions from '../../../store/actions/patients.actions';
 import { TCModalService } from '../../../ui/services/modal/modal.service';
+import { ApiModule, PatientControllerService } from 'libs/openapi';
+import { Clinique } from 'libs/openapi';
 
 @Component({
   selector: 'page-patients',
@@ -19,6 +21,7 @@ import { TCModalService } from '../../../ui/services/modal/modal.service';
 })
 export class PagePatientsComponent extends BasePageComponent implements OnInit, OnDestroy {
   patients: IPatient[];
+  clinique: Clinique;
   patientForm: FormGroup;
   gender: IOption[];
   status: IOption[];
@@ -29,7 +32,8 @@ export class PagePatientsComponent extends BasePageComponent implements OnInit, 
     store: Store<IAppState>,
     httpSv: HttpService,
     private fb: FormBuilder,
-    private modal: TCModalService
+    private modal: TCModalService,
+    private patientService: PatientControllerService
   ) {
     super(store, httpSv);
 
@@ -72,7 +76,7 @@ export class PagePatientsComponent extends BasePageComponent implements OnInit, 
 
   ngOnInit() {
     super.ngOnInit();
-
+   
     this.store.select('patients').subscribe(patients => {
       if (patients && patients.length) {
         this.patients = patients;
@@ -82,9 +86,50 @@ export class PagePatientsComponent extends BasePageComponent implements OnInit, 
     });
   }
 
+  createClinique(){
+    console.log("**********************************************");
+    const clinique: Clinique = {
+      active: true,
+      adress: "gabes",
+      banqueName: "ba",
+      banqueNumber: "587",
+      codeBureauxRegional: "897",
+      codeCentre: "789",
+      creationDate: new Date("2023-06-11T17:15:13.413Z"),
+      employNumber: "987",
+      id: 0,
+      nom: "bouElHaythem",
+      registreDeCmmerce: "no589",
+      tel: "55771720",
+      tva: "tva123456",
+      updateDate: new Date("2023-06-11T17:15:13.413Z")
+    }
+   // this.patientService.getPatientPageUsingGET(1,1);
+    this.patientService.postCliniqueUsingPOST(clinique).subscribe({
+      next: (res: any) => { 
+        console.log('log Clinique ***', res);
+      },
+      error: err => {
+        //this.errorMessage = err.error.message;
+        console.log(err,'ereuuur ');
+      }
+    });
+   /* this.patientService.getCliniqueById().subscribe({
+      next: (res: any) => { 
+        console.log('log Clinique ***', res);
+      },
+      error: err => {
+        //this.errorMessage = err.error.message;
+        console.log(err,'ereuuur ');
+      }
+    });*/
+    console.log("**********************************************");
+  }
   ngOnDestroy() {
     super.ngOnDestroy();
   }
+
+ 
 
   // delete patient
   remove(id: string) {

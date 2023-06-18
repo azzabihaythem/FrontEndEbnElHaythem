@@ -12,6 +12,22 @@ java -jar swagger-codegen-cli.jar generate    -i https://api.angular.schule/swag
 
 java -jar swagger-codegen-cli.jar generate    -i backEndSwagegr.json    -l typescript-angular    -o C:\work
 
+
+---> to fix some error in generated code
+
+replace import { Observable } from 'rxjs/Observable'; by replace import { Observable } from 'rxjs;
+
+and link by any
+
+and add
+ declare module "@angular/core" {
+    interface ModuleWithProviders<T = any> {
+        ngModule: Type<T>;
+        providers?: Provider[];
+    }
+}
+in api.module.ts
+
 #install node
 
 download and install nvm

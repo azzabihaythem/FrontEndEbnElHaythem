@@ -16,6 +16,15 @@ import { PagesModule } from './pages/pages.module';
 import { pageDataReducer } from './store/reducers/page-data.reducer';
 import { appSettingsReducer } from './store/reducers/app-settings.reducer';
 import { patientsReducer } from './store/reducers/patients.reducer';
+import { ApiModule, Configuration, ConfigurationParameters } from 'libs/openapi';
+import { environment } from 'src/environments/environment';
+
+const configurationFactory = () => {
+  const configParams: ConfigurationParameters = { 
+      basePath: environment.apiBaseUrl
+  }
+  return new Configuration(configParams);
+}
 
 @NgModule({
   declarations: [
@@ -34,7 +43,8 @@ import { patientsReducer } from './store/reducers/patients.reducer';
     RoutingModule,
     LayoutModule,
     UIModule,
-    PagesModule
+    PagesModule,
+    ApiModule.forRoot(configurationFactory)
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
