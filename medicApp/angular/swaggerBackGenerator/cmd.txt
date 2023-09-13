@@ -1,0 +1,3 @@
+npx openapi-generator generate -i path/to/swagger.json -g typescript-angular -o path/to/output-director
+
+npx openapi-generator generate -i backEndSwagegr.json -g typescript-angular -o /
